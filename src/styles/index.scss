@@ -1,0 +1,60 @@
+$textColor: white;
+$toolBarColor: #333;
+$noteColor: rgba(255,255,0,0.5);
+$backGroundColor: #222;
+$stdBorder: 1px solid white;
+
+@mixin flexbox($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  flex-wrap: wrap;
+}
+
+
+
+
+body {
+  background-color: $backGroundColor;
+  color: $textColor;
+  .toolbar {
+    @include flexbox(row);
+    justify-content: unset;
+    background-color: $toolBarColor;
+    .logo {
+      @include flexbox(row);
+      justify-content: flex-start;
+      width: 50%;
+      h1 {
+        margin: 20px;
+        font-family: Lobster;
+        font-size: 2.5em;
+      }
+    }
+    .buttons {
+      @include flexbox(row);
+      justify-content: flex-end;
+      width: 50%;
+      i {
+        margin-right: 20px;
+        font-size: 1.5em;
+      }
+    }
+  }
+  .divider {
+    border-top: none;
+    height: 2vh;
+    background-color: #555;
+  }
+  .notes {
+    @include flexbox(row);
+    .note-proto{
+      width: 40vw;
+      height: 40vw;
+      border: 1px solid black;
+      margin: 2.5vw;
+      background-color: $noteColor;
+    }
+  }
+}
