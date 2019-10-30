@@ -24,10 +24,17 @@ function createEventListeners(notenumber){
     let noteObj = notes[notenumber];
     let noteElem = document.querySelectorAll('.note')[notenumber];
     let delNote = noteElem.querySelector('.delete');
+    let textArea = noteElem.querySelector('textarea');
     delNote.addEventListener('click', function(){
-        notes.splice(notenumber, 1);
+        // notes.splice(notenumber, 1);
+        notes = notes.filter(function(obj) {
+            return obj.notenumber !== notenumber;
+        });
         noteElem.remove();
-        
+        console.log(notes);
+    });
+    textArea.addEventListener('keyup',function(){
+        noteObj.text = textArea.value;
     });
 }
 
