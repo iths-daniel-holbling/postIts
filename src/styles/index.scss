@@ -39,6 +39,7 @@ body {
       i {
         margin-right: 20px;
         font-size: 1.5em;
+        cursor: pointer;
       }
     }
   }
@@ -49,12 +50,19 @@ body {
   }
   .notes {
     @include flexbox(row);
-    .note-proto{
+    .note {
       width: 40vw;
       height: 40vw;
       border: 1px solid black;
       margin: 2.5vw;
       background-color: $noteColor;
+    }
+    .note-list {
+      width: 100vw;
+      height: 100vw;
+    }
+    .proto {
+      visibility: hidden;
     }
   }
 }
