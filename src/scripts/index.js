@@ -46,7 +46,6 @@ function createEventListeners(notenumber){
             return obj.notenumber !== notenumber;
         });
         noteElem.remove();
-        console.log(notes);
         saveNotes();
     });
 
@@ -65,10 +64,8 @@ function createEventListeners(notenumber){
 
 
 function loadSavedNotes(){
-    console.log(localStorage.notes);
     if(typeof localStorage.notes !== 'undefined'){
         let parsedNotes = JSON.parse(localStorage.notes);
-        console.log(parsedNotes);
         notes = parsedNotes;
         for(let note of notes){
             let newNote = note;
@@ -117,7 +114,6 @@ function init(){
         }
     });
     addBtn.addEventListener('click', function(){
-        console.log(notes);
         let newNote;
         if(notes === undefined || notes.length == 0){
             newNote = new Note("Edit this waaaaah",randomColor(),notes.length);
