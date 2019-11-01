@@ -27,6 +27,7 @@ $animationDelay: 1;
 body {
   background-color: $backGroundColor;
   color: $textColor;
+  margin: 0;
   .toolbar {
     @include flexbox(row);
     justify-content: unset;
@@ -61,36 +62,71 @@ body {
     @include flexbox(row);
     .note {
       @include flexbox(column);
-      width: 40vw;
-      height: 40vw;
+      justify-content: flex-start;
+      align-items: flex-end;
       border: 1px solid black;
-      margin: 2.5vw;
+      box-sizing: border-box;
       .note-buttons {
+        @include flexbox(row);
+        justify-content: flex-end;
         width: 100%;
-        height: 20%;
-        margin:0;
-        padding:0;
+        height: 20px;
+        box-sizing: border-box;
+        padding:5px 5px 0 0;
         margin-bottom: 5px;
+        .colorwrapper {
+          @include flexbox(row);
+          flex-wrap: nowrap;
+          justify-content: flex-end;
+          align-items: flex-start;
+          width:16px;
+          height: 16px;
+          padding: 0;
+          margin: 0;
+          input {
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+            padding: 0;
+            border: none;
+            background-color: transparent;
+            margin: 5px;
+            cursor: pointer;
+            opacity: 0;
+          }
+          i {
+            width: 0;
+            position: relative;
+            right: 16px;
+            font-size: 1em;
+            margin: 0;
+            padding: 0;
+          }
+        }
+        .buttonwrapper {
+          width: 16px;
+          height: 16px;
+          margin:0;
+          padding:0;
+          i {
+            font-size: 1em;
+            padding: 0;
+            margin: 0;
+          }
+        }
       }
       textarea {
-        width: 90%;
+        width: 100%;
         height: 70%;
         margin:0;
+        padding: 5%;
+        box-sizing: border-box;
         background-color: transparent;
         border: none;
         color: white; 
         mix-blend-mode: difference;
         font-family: "Arimo";
-        font-size: 0.8em;
-      }
-      input {
-        width: 18%;
-        height: 100%;
-        padding: 0;
-        border: none;
-        background-color: transparent;
-        margin: 5px;
-        cursor: pointer;
+        resize: none;
       }
       animation-name: fade-in;
       animation-fill-mode: both;
@@ -110,6 +146,34 @@ body {
     }
     .proto {
       visibility: hidden;
+    }
+  }
+}
+
+
+@media only screen and (max-width: 991px) {
+  .note {
+    width: 48vw;
+    height: 48vw;
+    margin: 1vw;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .note {
+    width: 24vw;
+    height: 24vw;
+    margin: 0.25vw;
+    textarea {
+      font-size: 2em;
+    }
+  }
+  .note-list {
+    width: 40vw !important;
+    height: 40vw !important;
+    margin-left: 10vw !important;
+    margin-right: 10vw !important;
+    textarea {
+      font-size: 3.2em !important;
     }
   }
 }
